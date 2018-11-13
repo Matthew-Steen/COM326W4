@@ -76,9 +76,17 @@ void Student::ToString() const {
 
 std::string Student::CalculateClassification() const {
 
-	int average{};
+	int average{0};
 
 	//average = (moduleOneMark_ + moduleTwoMark_ + moduleThreeMark_) / 3;
+
+	int total{ 0 };
+	for (int index = 0; index < moduleMarks_.size(); index++) {
+		total += moduleMarks_.at(index).getModuleMark();
+	}
+
+	average += total / moduleMarks_.size();
+
 	if (average < 40) {
 		return "fail";
 	}
@@ -124,4 +132,8 @@ void Student::UpdateModule(std::string moduleTitle, std::string moduleCode, int 
 			moduleMarks_.at(index).setModuleMark(moduleMark);
 		}
 	}
+}
+
+int Student::GetNumOfModules() const {
+	return moduleMarks_.size();
 }

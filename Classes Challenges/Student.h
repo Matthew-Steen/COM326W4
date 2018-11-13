@@ -63,6 +63,8 @@ public:
 
 	void ToString() const;
 
+	int GetNumOfModules() const;
+
 	std::string Student::CalculateClassification() const;
 
 };
